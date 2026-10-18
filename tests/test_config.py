@@ -476,7 +476,7 @@ class RelativeExtendedConfigTestCase(unittest.TestCase):
             'base.yaml': 'rules: {trailing-spaces: enable}',
             'configs/.yamllint': '',
         }):
-            with open('configs/.yamllint', 'w') as f:
+            with open('configs/.yamllint', 'w', encoding='utf-8') as f:
                 f.write('extends: ' + os.path.abspath('base.yaml'))
             c = config.YamlLintConfig(file='configs/.yamllint')
             self.assertIn('trailing-spaces', c.rules)
